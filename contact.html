@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Golden Shoot Photography</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+  
+  <nav class="navbar">
+  <div class="logo">
+    <span>Golden Shoot Photography</span>
+  </div>
+
+  <div class="menu-toggle" id="menuToggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+
+
+  <!-- CONTACT SECTION -->
+  <div class="contact-container">
+
+    <!-- LEFT SIDE INFO -->
+    <div class="contact-info">
+      <h2>Contact Details</h2>
+      <p><strong>📞 Phone:</strong> +91 7219565332</p>
+      <p><strong>📧 Email:</strong>abhishkbagade5454@gmail.com</p>
+      <p><strong>📍 Message:</strong> Available for bookings & professional shoots.</p>
+    </div>
+
+    <!-- RIGHT SIDE FORM -->
+    <form id="contactForm">
+      <h2>Send a Message</h2>
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+
+      <p id="status"></p>
+    </form>
+
+  </div>
+
+
+  <!-- EmailJS Script -->
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+    (function(){
+        emailjs.init("Wzbk2s_7IdPpYukLe"); // YOUR PUBLIC KEY
+    })();
+  </script>
+
+  <!-- Send Mail Script -->
+  <script>
+  document.getElementById("contactForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      emailjs.send("service_ml32yjk", "template_ne6t39n", {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          message: document.getElementById("message").value
+      })
+      .then(function(response) {
+          document.getElementById("status").innerText = "Message sent successfully!";
+      }, function(error) {
+          document.getElementById("status").innerText = "Failed to send message.";
+      });
+  });
+  </script>
+
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/7219565332" target="_blank" class="whatsapp-btn">💬</a>
+
+
+
+  <!-- FOOTER -->
+  <footer class="golden-footer">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <h2>Golden Shoot Photography</h2>
+      <p>Creating timeless stories through light, emotion, and golden artistry.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-social">
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://wa.me/7219565332"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
+    
+
+    <div class="footer-bottom">
+      <p> Address:- JAWAHARNAGAR ROAD PETROL PUMP THANA JH. BHANDARA</p>
+      <p>© 2025 Golden Shoot Photography • Crafted with Love & Light ✨</p>
+    </div>
+
+      </div>
+</footer>
+
+
+
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

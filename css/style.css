@@ -1,0 +1,1304 @@
+
+
+/* =====================
+   GLOBAL COLORS
+===================== */
+:root {
+  --gold: #e8a44b;
+  --soft-black: #1b1b1b;
+  --bg-gradient: linear-gradient(to bottom, #FFF4EA, #FFFFFF);
+  --bg-white: #fff;
+}
+
+/* =====================
+   NAVBAR
+===================== */
+.navbar {
+  background: var(--bg-gradient);
+  border-bottom: 1px solid var(--gold);
+  padding: 15px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: 'Poppins', sans-serif;
+}
+
+.logo span {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--soft-black);
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: var(--gold);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: var(--soft-black);
+  cursor: pointer;
+}
+
+/* =====================
+   MOBILE NAVBAR
+===================== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 20px;
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background: var(--bg-white);
+    border-top: 1px solid var(--gold);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 12px 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* =====================
+   SLIDER BASE (NO FLASH)
+===================== */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+}
+
+.slide.active {
+  visibility: visible;
+  z-index: 1;
+}
+
+/* =====================
+   VIDEO
+===================== */
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =====================
+   TEXT BASE
+===================== */
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: 6%;
+  transform: translateY(-50%);
+  max-width: 45%;
+  z-index: 2;
+}
+
+.text-box h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #000;
+  text-shadow: 0 0 8px rgba(255,255,255,0.9);
+}
+
+.text-box p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  color: #000;
+  text-shadow: 0 0 6px rgba(255,255,255,0.8);
+}
+
+/* =====================
+   SLIDE 1 – CENTER FADE
+===================== */
+.slide:nth-child(1).active .text-box {
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  animation: fadeUp 1.1s ease forwards;
+}
+
+/* =====================
+   SLIDE 2 – PREMIUM REVEAL BOX
+===================== */
+.slide:nth-child(2) .text-box {
+  background: rgba(255, 255, 255, 0.96);
+  padding: 38px 42px;
+  border-radius: 18px;
+  max-width: 440px;
+
+  box-shadow:
+    0 35px 80px rgba(0,0,0,0.25),
+    inset 0 0 0 1px rgba(255,255,255,0.6);
+
+  backdrop-filter: blur(10px);
+
+  opacity: 0;
+  transform: translateY(-50%) translateX(-70px) scale(0.95);
+}
+
+.slide:nth-child(2).active .text-box {
+  animation: luxuryReveal 1.4s ease forwards;
+}
+
+.slide:nth-child(2) .text-box h1,
+.slide:nth-child(2) .text-box p {
+  text-shadow: none;
+}
+
+/* Apply to Slide 3 Text Box */
+.slide:nth-child(3) .text-box {
+  right: 6%;
+  left: auto;
+  top: 48%;
+  max-width: 42%;
+  text-align: right;
+  opacity: 0;
+  animation: waveFadeIn 1.5s forwards;
+}
+
+/* Make heading letters float in wave */
+.slide:nth-child(3) .text-box h1 {
+  font-size: 3.6rem;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.slide:nth-child(3).active .text-box h1 span {
+  display: inline-block;
+  animation: wave 1.5s ease-in-out infinite;
+}
+
+/* Individual letter wave animation */
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-8px); }
+  50% { transform: translateY(4px); }
+  75% { transform: translateY(-4px); }
+}
+
+@keyframes waveFadeIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* =====================
+   ANIMATIONS
+===================== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translate(-50%, -30%); }
+  to   { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+@keyframes luxuryReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-70px) scale(0.95);
+    filter: blur(6px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(12px) scale(1.03);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes cinematicFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(-65%) translateX(40px);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(-6px);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes slowDrift {
+  0%   { transform: translateY(-50%) translateX(0); }
+  50%  { transform: translateY(-53%) translateX(-6px); }
+  100% { transform: translateY(-50%) translateX(0); }
+}
+
+/* =====================
+   ICONS
+===================== */
+.text-icons {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.text-icons a {
+  font-size: 1.5rem;
+  color: #000;
+  text-shadow: 0 0 6px rgba(255,255,255,0.8);
+  transition: transform 0.3s ease;
+}
+
+.text-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* =====================
+   MOBILE SLIDER
+===================== */
+@media (max-width: 768px) {
+  .text-box {
+    left: 50% !important;
+    right: auto !important;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .text-box h1 { font-size: 2rem; }
+  .text-box p  { font-size: 1rem; }
+
+  .slide:nth-child(3).active .text-box {
+    animation: cinematicMobile 1.2s ease forwards;
+  }
+
+  @keyframes cinematicMobile {
+    from { opacity: 0; transform: translate(-50%, -65%); }
+    to   { opacity: 1; transform: translate(-50%, -50%); }
+  }
+}
+
+/* =====================
+   VIDEO DARK OVERLAY (FIX VISIBILITY)
+===================== */
+.slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.35)
+  );
+  z-index: 1;
+}
+
+/* Make sure video stays behind */
+.bg-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* =====================
+   TEXT VISIBILITY FIX
+===================== */
+.text-box {
+  z-index: 2;
+}
+
+/* Strong readable text */
+.text-box h1 {
+  color: #000;
+  text-shadow:
+    0 0 10px rgba(255,255,255,1),
+    0 0 20px rgba(255,255,255,0.8),
+    0 4px 12px rgba(0,0,0,0.6);
+}
+
+.text-box p {
+  color: #000;
+  text-shadow:
+    0 0 8px rgba(255,255,255,1),
+    0 3px 8px rgba(0,0,0,0.6);
+}
+
+/* =====================
+   SLIDE 2 WHITE BOX – FORCE VISIBILITY
+===================== */
+.slide:nth-child(2) .text-box {
+  background: rgba(255,255,255,0.97);
+  z-index: 3;
+}
+
+/* =====================
+   SLIDE 3 FLOAT TEXT – FIX INVISIBLE ISSUE
+===================== */
+.slide:nth-child(3) .text-box {
+  opacity: 1;
+  filter: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================
+   PHOTOGRAPHY SECTION
+===================== */
+.photography-section {
+  padding: 30px 30px;
+  text-align: center;
+}
+
+.photography-section .main-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  /* Gradient text for theme colors */
+  background: linear-gradient(45deg, var(--gold), var(--soft-black));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.photography-section .main-title::after {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: var(--gold);
+  display: block;
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.photo-category-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.photo-category {
+  position: relative;
+  width: 320px;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.photo-category img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.photo-category:hover img {
+  transform: scale(1.1);
+}
+
+.photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(20px);
+}
+
+.photo-category:hover .photo-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-overlay h2 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  text-shadow: 0 0 6px rgba(0,0,0,0.7);
+}
+
+/* Remove underline and style button */
+.photo-overlay .btn {
+  font-size: 1rem;
+  padding: 8px 20px;
+  background-color: var(--gold);
+  color: var(--bg-white);
+  border-radius: 6px;
+  text-decoration: none; /* Remove underline */
+  transition: all 0.3s ease;
+}
+
+.photo-overlay .btn:hover {
+  background-color: var(--soft-black);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* =====================
+   CHAT BUTTON CENTER
+===================== */
+.btn-center {
+  text-align: center;
+  margin: 20px 0 0;
+}
+
+.chat-btn {
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  background-color: var(--gold);
+  color: var(--bg-white);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.chat-btn:hover {
+  background-color: var(--soft-black);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 992px) {
+  .photo-category {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .photography-section {
+    padding: 60px 20px;
+  }
+
+  .photo-category {
+    width: 90%;
+  }
+
+  .main-title {
+    font-size: 2.4rem;
+  }
+
+  .photo-overlay h2 {
+    font-size: 1.3rem;
+  }
+
+  .photo-overlay .btn {
+    font-size: 0.95rem;
+    padding: 6px 18px;
+  }
+
+  .chat-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+
+
+/* =====================
+   PORTFOLIO SECTION
+===================== */
+.portfolio-section {
+  padding: 40px 40px;
+  background: rgba(232, 164, 75, 0.05); /* faint gold background */
+  text-align: center;
+}
+
+.portfolio-section .portfolio-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; /* same as PHOTOGRAPHER title */
+  background: linear-gradient(45deg, var(--gold), var(--soft-black));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.portfolio-section .portfolio-heading::after {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: var(--gold);
+  display: block;
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.portfolio-section .portfolio-subtext {
+  font-size: 1.2rem;
+  color: var(--soft-black);
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.portfolio-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.portfolio-item {
+  position: relative;
+  width: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.05);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(20px);
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-overlay h3 {
+  font-size: 1.5rem;
+  text-shadow: 0 0 6px rgba(0,0,0,0.7);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 992px) {
+  .portfolio-item {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-section {
+    padding: 60px 20px;
+  }
+
+  .portfolio-heading {
+    font-size: 2.4rem;
+  }
+
+  .portfolio-subtext {
+    font-size: 1.1rem;
+  }
+
+  .portfolio-item {
+    width: 90%;
+  }
+
+  .portfolio-overlay h3 {
+    font-size: 1.3rem;
+  }
+}
+
+
+
+/* =====================
+   ABOUT SECTION
+===================== */
+.about-section {
+  padding: 30px 30px;
+  background: rgba(232, 164, 75, 0.05); /* faint gold background */
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* LEFT SIDE TEXT */
+.about-text {
+  flex: 1 1 400px;
+  max-width: 600px;
+}
+
+.about-text .about-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; /* same as PHOTOGRAPHER heading */
+  background: linear-gradient(45deg, var(--gold), var(--soft-black));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.about-text .about-heading::after {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: var(--gold);
+  display: block;
+  margin: 15px 0 0;
+  border-radius: 2px;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: var(--soft-black);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.about-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: var(--gold);
+  color: var(--soft-black);
+  font-weight: 600;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.about-btn:hover {
+  background: var(--soft-black);
+  color: var(--gold);
+  transform: translateY(-3px);
+}
+
+/* RIGHT SIDE IMAGES */
+.about-images {
+  display: flex;
+  flex: 1 1 300px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.about-images .img-box {
+  flex: 1 1 140px;
+  overflow: hidden;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-images .img-box img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.about-images .img-box:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-images {
+    justify-content: center;
+  }
+
+  .about-images .img-box {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 60px 20px;
+  }
+
+  .about-text .about-heading {
+    font-size: 2.4rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .about-images .img-box {
+    flex: 1 1 90%;
+  }
+}
+
+
+
+/* =====================
+   BLOG SECTION
+===================== */
+.blog-section {
+  padding: 20px 20px;
+  background: rgba(232, 164, 75, 0.05); /* faint gold background */
+}
+
+.blog-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; /* same as Photographer heading */
+  background: linear-gradient(45deg, var(--gold), var(--soft-black));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.blog-heading::after {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: var(--gold);
+  display: block;
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.blog-subtext {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--soft-black);
+  margin-bottom: 50px;
+}
+
+/* BLOG CARDS */
+.blog-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.blog-card {
+  background: #fff;
+  flex: 1 1 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.blog-img img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.blog-card:hover .blog-img img {
+  transform: scale(1.05);
+}
+
+.blog-content {
+  padding: 20px;
+}
+
+.blog-date {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--gold);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.blog-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: var(--soft-black);
+}
+
+.blog-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.blog-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  background: var(--gold);
+  color: var(--soft-black);
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.blog-btn:hover {
+  background: var(--soft-black);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 992px) {
+  .blog-container {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .blog-card {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-section {
+    padding: 60px 20px;
+  }
+
+  .blog-heading {
+    font-size: 2.4rem;
+  }
+
+  .blog-card {
+    flex: 1 1 100%;
+  }
+
+  .blog-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .blog-content p {
+    font-size: 0.95rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================
+   SERVICES SECTION
+===================== */
+.services {
+  padding: 20px 20px; /* same padding as blog */
+  text-align: center;
+  padding-bottom: 20px 20px;
+  background: rgba(232, 164, 75, 0.05); /* optional faint gold background like blog */
+}
+
+/* Main heading same as Blog */
+.services .section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; /* same as blog heading */
+  background: linear-gradient(45deg, var(--gold), var(--soft-black));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  text-align: center;
+  display: inline-block;
+}
+
+.services .section-title::after {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: var(--gold);
+  display: block;
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+/* Service cards container */
+.service-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Individual service card */
+.service-card {
+  background: #fff;
+  flex: 1 1 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Card heading black */
+.service-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+/* Card text red */
+.service-card p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #e74848;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .service-grid {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .service-card {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 60px 20px;
+  }
+
+  .services .section-title {
+    font-size: 2.4rem;
+  }
+
+  .service-card {
+    flex: 1 1 100%;
+  }
+
+  .service-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .service-card p {
+    font-size: 0.95rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================
+   FOOTER
+===================== */
+.golden-footer {
+  background: #0f0e0c; /* black background */
+  color: #d8943c;      /* gold text for headings/links */
+  padding: 50px 20px;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Footer Brand */
+.footer-brand h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--gold);  /* gold heading */
+  margin-bottom: 10px;
+}
+
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Footer links horizontal on desktop */
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;   /* space between page links */
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--gold);
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+/* Social icons */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer-social a {
+  color: var(--gold);
+  font-size: 24px;
+  transition: 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #ffffff;
+  transform: scale(1.2);
+}
+
+/* Footer bottom text */
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* space between two p tags */
+  flex-wrap: wrap;
+  margin-top: 25px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  padding-top: 15px;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* =====================
+   MOBILE RESPONSIVE
+===================== */
+@media screen and (max-width: 768px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================
+   NAVBAR BRAND – SAME GRADIENT AS HEADINGS
+===================== */
+
+.navbar .logo span {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  background: linear-gradient(45deg, var(--gold), var(--soft-black));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+
+
+
+/* ===================== 
+   SLIDER TEXT – TIGHTEN SPACING
+===================== */
+.text-box h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;        /* adjust as needed */
+  color: #000;
+  text-shadow:
+    0 0 10px rgba(255,255,255,1),
+    0 0 20px rgba(255,255,255,0.8),
+    0 4px 12px rgba(0,0,0,0.6);
+  margin-bottom: 10px;    /* less space below heading */
+}
+
+.text-box p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  color: #000;
+  text-shadow:
+    0 0 8px rgba(255,255,255,1),
+    0 3px 8px rgba(0,0,0,0.6);
+  margin-top: 0;           /* remove extra space above paragraph */
+  margin-bottom: 15px;     /* less space below paragraph */
+}
+
+/* Adjust icons spacing below text */
+.text-icons {
+  margin-top: 10px;        /* reduce gap between text and icons */
+}
+
+
+
+
+
+
+/* ===================== 
+   SLIDER ICONS CENTER FIX
+===================== */
+.text-box {
+  display: flex;
+  flex-direction: column; /* stack heading, text, and icons vertically */
+  justify-content: center;
+  align-items: center;    /* center horizontally */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  text-align: center;
+  z-index: 2;
+}
+
+.text-icons {
+  margin-top: 20px;       /* space between text and icons */
+  display: flex;
+  justify-content: center; /* center horizontally */
+  gap: 15px;
+}
+
+.text-icons a {
+  font-size: 1.5rem;
+  color: #000;            /* adjust icon color */
+  transition: transform 0.3s ease;
+}
+
+.text-icons a:hover {
+  transform: scale(1.2);
+}
+
+
+
+
+
+
+

@@ -1,0 +1,129 @@
+/* =============================
+   GLOBAL MOBILE FIX
+============================= */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* =============================
+   NAVBAR
+============================= */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 0;
+  }
+}
+
+/* =============================
+   HERO SLIDER
+============================= */
+@media (max-width: 768px) {
+  .slider {
+    height: 90vh;
+  }
+
+  .text-box {
+    max-width: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .text-icons {
+    justify-content: center;
+  }
+}
+
+/* =============================
+   PHOTOGRAPHY SECTION
+============================= */
+@media (max-width: 768px) {
+  .photo-category-section {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-category {
+    height: 220px;
+  }
+}
+
+/* =============================
+   PORTFOLIO
+============================= */
+@media (max-width: 768px) {
+  .portfolio-container {
+    grid-template-columns: 1fr;
+    width: 92%;
+  }
+
+  .portfolio-item {
+    height: 200px;
+  }
+}
+
+/* =============================
+   ABOUT SECTION
+============================= */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 50px 20px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-images {
+    grid-template-columns: 1fr;
+  }
+
+  .img-box {
+    height: 240px;
+  }
+}
+
+/* =============================
+   BLOG
+============================= */
+@media (max-width: 768px) {
+  .blog-container {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-content {
+    text-align: center;
+  }
+}
+
+/* =============================
+   SERVICES
+============================= */
+@media (max-width: 768px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =============================
+   FOOTER
+============================= */
+@media (max-width: 768px) {
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

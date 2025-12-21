@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Golden Shoot Photography</title>
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+ <nav class="navbar">
+  <div class="logo">
+    <span>Golden Shoot Photography</span>
+  </div>
+
+  <div class="menu-toggle" id="menuToggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+
+  <!-- ABOUT SECTION -->
+  <section class="about">
+      <div class="about-content">
+          <div class="image-box">
+              <img src="https://images.pexels.com/photos/963060/pexels-photo-963060.jpeg" alt="Photographer Photo">
+          </div>
+
+          <div class="text-box">
+              <h2>About Me</h2>
+              <h3>Capturing Stories Through the Lens</h3>
+              <p>
+                  I am a passionate photographer who believes that every picture carries a unique story.
+                  My goal is to freeze moments that speak, evoke emotions, and stay timeless for years.
+                  With years of experience in portrait, wedding, product, and travel photography — I bring
+                  a blend of creativity, precision, and emotion into every shot.
+              </p>
+
+              <p>
+                  Golden Shoot Photography is not just a brand — it's a vision to create art that
+                  feels alive. I focus on natural lighting, modern composition techniques, and soulful editing
+                  to create visuals that truly stand out.
+              </p>
+
+              <a href="portfolio.html" class="btn">View My Work</a>
+          </div>
+      </div>
+  </section>
+
+  <!-- EXPERTISE / SKILLS SECTION -->
+  <section class="skills-section">
+      <h2 class="section-heading">My Expertise</h2>
+      <div class="skills-grid">
+          <div class="skill-card">Portrait Photography</div>
+          <div class="skill-card">Wedding Photography</div>
+          <div class="skill-card">Event Photography</div>
+          <div class="skill-card">Travel Photography</div>
+      </div>
+  </section>
+
+  <!-- JOURNEY / TIMELINE SECTION -->
+  <section class="journey-section">
+      <h2 class="section-heading">My Journey</h2>
+      <div class="timeline">
+          <div class="timeline-item">
+              <h3>2018 - Started Photography</h3>
+              <p>Began my passion for photography, learning the basics and experimenting with light.</p>
+          </div>
+          <div class="timeline-item">
+              <h3>2020 - First Freelance Projects</h3>
+              <p>Worked with local clients, covering weddings and portraits, gaining professional experience.</p>
+          </div>
+          <div class="timeline-item">
+              <h3>2022 - Established Golden Shoot</h3>
+              <p>Founded Golden Shoot Photography to offer professional photography services and creative storytelling.</p>
+          </div>
+      </div>
+  </section>
+
+  <!-- TESTIMONIAL SECTION -->
+  <section class="testimonial-section">
+      <h2 class="section-heading">What Clients Say</h2>
+      <div class="testimonial-grid">
+          <div class="testimonial-card">
+              <p>"Golden Shoot captured our wedding perfectly! Every moment feels alive and magical."</p>
+              <h4>- Riya & Karan</h4>
+          </div>
+          <div class="testimonial-card">
+              <p>"Amazing photographer with an eye for detail. The portraits are stunning and timeless."</p>
+              <h4>- Priya Sharma</h4>
+          </div>
+          <div class="testimonial-card">
+              <p>"Professional, creative, and fun to work with. Highly recommend for any event."</p>
+              <h4>- Rahul Mehta</h4>
+          </div>
+      </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section class="contact-cta" style="background: var(--gold); color:#fff; text-align:center; padding:40px 20px;">
+      <h2>Ready to Book Your Session?</h2>
+      <p>Let's capture your moments and create timeless memories.</p>
+      <a href="contact.html" class="btn" style="margin-top:15px;">Contact Me</a>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="golden-footer">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <h2>Golden Shoot Photography</h2>
+      <p>Creating timeless stories through light, emotion, and golden artistry.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-social">
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://wa.me/7219565332"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
+    
+
+    <div class="footer-bottom">
+      <p> Address:- JAWAHARNAGAR ROAD PETROL PUMP THANA JH. BHANDARA</p>
+      <p>© 2025 Golden Shoot Photography • Crafted with Love & Light ✨</p>
+    </div>
+
+      </div>
+</footer>
+
+
+  <!-- SCROLL ANIMATION SCRIPT -->
+  <script>
+  const faders = document.querySelectorAll('.text-box, .image-box img, .skill-card, .timeline-item, .testimonial-card');
+
+  const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+  const appearOnScroll = new IntersectionObserver(function(entries, observer){
+    entries.forEach(entry => {
+      if(!entry.isIntersecting) return;
+      entry.target.classList.add('fade-in');
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
+  <script>
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

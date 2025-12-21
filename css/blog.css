@@ -1,0 +1,354 @@
+/* =====================
+   GLOBAL COLORS
+===================== */
+:root {
+  --gold: #e8a44b;
+  --soft-black: #1b1b1b;
+  --bg-gradient: linear-gradient(to bottom, #FFF4EA, #FFFFFF);
+  --bg-white: #fff;
+}
+
+/* =====================
+   NAVBAR
+===================== */
+.navbar {
+  background: var(--bg-gradient);
+  border-bottom: 1px solid var(--gold);
+  padding: 15px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: 'Poppins', sans-serif;
+}
+
+.logo span {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--soft-black);
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: var(--gold);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: var(--soft-black);
+  cursor: pointer;
+}
+
+/* =====================
+   MOBILE NAVBAR
+===================== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 20px;
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background: var(--bg-white);
+    border-top: 1px solid var(--gold);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 12px 0;
+  }
+}
+
+
+
+
+
+
+/* =========================
+   BLOG SECTION STYLING
+========================= */
+
+/* Main Heading */
+.blog-section .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, var(--gold), var(--soft-black));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Subtitle */
+.blog-section .section-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color: red;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Blog Grid */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+/* Blog Card */
+.blog-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.blog-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.blog-card .content {
+    padding: 20px;
+}
+
+.blog-card .content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #1b1b1b;
+}
+
+.blog-card .content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.blog-card .content .read {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--gold);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.blog-card .content .read:hover {
+    color: var(--soft-black);
+}
+
+/* =========================
+   RESPONSIVE STYLING
+========================= */
+
+/* Medium screens (992px and below) */
+@media screen and (max-width: 992px) {
+    .blog-section .section-title {
+        font-size: 2.5rem;
+    }
+    .blog-section .section-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+/* Small screens (768px and below) */
+@media screen and (max-width: 768px) {
+    .blog-section .section-title {
+        font-size: 2rem;
+    }
+    .blog-section .section-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* Extra small screens (480px and below) */
+@media screen and (max-width: 480px) {
+    .blog-section .section-title {
+        font-size: 1.8rem;
+    }
+    .blog-section .section-subtitle {
+        font-size: 0.95rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================
+   FOOTER
+===================== */
+.golden-footer {
+  background: #0f0e0c; /* black background */
+  color: #d8943c;      /* gold text for headings/links */
+  padding: 50px 20px;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Footer Brand */
+.footer-brand h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--gold);  /* gold heading */
+  margin-bottom: 10px;
+}
+
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Footer links horizontal on desktop */
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;   /* space between page links */
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--gold);
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+/* Social icons */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer-social a {
+  color: var(--gold);
+  font-size: 24px;
+  transition: 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #ffffff;
+  transform: scale(1.2);
+}
+
+/* Footer bottom text */
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* space between two p tags */
+  flex-wrap: wrap;
+  margin-top: 25px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  padding-top: 15px;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* =====================
+   MOBILE RESPONSIVE
+===================== */
+@media screen and (max-width: 768px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}
+
+
+
+
+
+
+
+
+/* =====================
+   NAVBAR BRAND – SAME GRADIENT AS HEADINGS
+===================== */
+
+.navbar .logo span {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  background: linear-gradient(45deg, var(--gold), var(--soft-black));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+

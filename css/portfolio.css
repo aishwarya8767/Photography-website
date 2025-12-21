@@ -1,0 +1,342 @@
+/* =====================
+   GLOBAL COLORS
+===================== */
+:root {
+  --gold: #e8a44b;
+  --soft-black: #1b1b1b;
+  --bg-gradient: linear-gradient(to bottom, #FFF4EA, #FFFFFF);
+  --bg-white: #fff;
+}
+
+/* =====================
+   NAVBAR
+===================== */
+.navbar {
+  background: var(--bg-gradient);
+  border-bottom: 1px solid var(--gold);
+  padding: 15px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: 'Poppins', sans-serif;
+}
+
+.logo span {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--soft-black);
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: var(--gold);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: var(--soft-black);
+  cursor: pointer;
+}
+
+/* =====================
+   MOBILE NAVBAR
+===================== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 20px;
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background: var(--bg-white);
+    border-top: 1px solid var(--gold);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 12px 0;
+  }
+}
+
+
+
+
+/* ================= HEADER ================= */
+.portfolio-header {
+  text-align: center;
+  padding: 60px 20px 20px;
+  color: rgba(250, 144, 6, 0.45)
+}
+
+.section-title {
+  font-size: 3rem;
+  
+  font-family: "Cinzel", serif;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.85;
+    color: red;
+}
+
+/* ================= GRID HEADINGS ================= */
+.grid-heading {
+  text-align: center;
+  font-size: 2.3rem;
+  margin: 50px 0 20px;
+    background: linear-gradient(45deg, var(--gold), var(--soft-black));
+  color: var(--gold);
+  font-family: "Playfair Display", serif;
+}
+
+/* ================= GRID GROUP ================= */
+.grid-group {
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 20px 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+/* ================= CARD ================= */
+.p-card {
+  background: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(232,164,75,0.25);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+/* ================= IMAGE ================= */
+.p-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  /* FAST LOAD SETTINGS */
+  opacity: 1 !important;
+  filter: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* ================= HOVER GLOW ================= */
+.p-card:hover {
+  box-shadow: 0 12px 30px rgba(232,164,75,0.45);
+  transform: translateY(-2px);
+}
+
+
+/* FOOTER */
+.golden-footer {
+  background: #0f0e0c;
+  padding: 50px 20px;
+  color:  #d8943c;
+  text-align: center;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  font-family: 'Poppins', sans-serif;
+  margin-top: 40px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-brand h2 {
+  font-family: 'Yeseva One', serif;
+  font-size: 32px;
+  color:  #d8943c;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 650px;
+  margin: 0 auto 25px;
+  line-height: 1.5;
+}
+
+.footer-links {
+  margin: 20px 0;
+}
+
+.footer-links a {
+  margin: 0 15px;
+  color:  #d8943c;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.footer-social a {
+  margin: 0 12px;
+  color:  #d8943c;
+  font-size: 24px;
+  transition: 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #ffffff;
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  margin-top: 25px;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  padding-top: 15px;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.9rem;
+}
+
+
+
+@media (max-width: 768px) {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+
+.grid-group img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+/* FIX IMAGE LOADING SPEED & DISPLAY */
+.p-card {
+  width: 100%;
+  height: 250px;               /* fixed height for all images */
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.p-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* no stretching */
+  display: block;
+}
+
+/* Remove delay effects */
+.p-card img {
+  transition: none !important;
+}
+
+/* Improve loading */
+img {
+  image-rendering: auto;
+}
+
+
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; /* adjust size as needed */
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(45deg, var(--gold), var(--soft-black));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Optional underline */
+.section-title::after {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: var(--gold);
+  display: block;
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.4rem;
+  }
+}
+
+
+
+
+
+
+
+
+/* =====================
+   NAVBAR BRAND – SAME GRADIENT AS HEADINGS
+===================== */
+
+.navbar .logo span {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  background: linear-gradient(45deg, var(--gold), var(--soft-black));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+
+
+
+
+
+
+
+

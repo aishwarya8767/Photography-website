@@ -24,4 +24,5 @@ perfect for showcasing work and connecting with clients.
 - EmailJS (for contact form)
 
 
-
+## Project Status
+Photography portfolio website under active development.

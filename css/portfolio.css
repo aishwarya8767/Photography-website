@@ -7,9 +7,21 @@
 :root {
   --gold: #e8a44b;
   --soft-black: #1b1b1b;
-  --bg-gradient: linear-gradient(to bottom, #FFF4EA, #FFFFFF);
   --bg-white: #fff;
+  --bg-gradient: linear-gradient(to bottom, #fcf1e6, #f8efef);
 }
+
+body {
+  background: var(--bg-gradient);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+
 
 /* =====================
    NAVBAR
@@ -25,14 +37,39 @@
   top: 0;
   z-index: 100;
   font-family: 'Poppins', sans-serif;
+  --bg-gradient: linear-gradient(to bottom, #faf1ea, #FFFFFF);
 }
 
 .logo span {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--gold);
+  font-family: 'Playfair Display', serif;  /* elegant serif font */
+  font-size: 42px;                         /* base size for desktop */
+  font-weight: 800;                         /* make it bold */
+  color: var(--gold);                       /* golden color */
+  text-transform: uppercase;               /* make all letters capital */
+  letter-spacing: 2px;                      /* spacing between letters */
+  transition: 0.3s;                         /* smooth transition if needed */
 }
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
+  .logo span {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo span {
+    font-size: 28px;
+    text-align: center;                     /* optional: center logo on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo span {
+    font-size: 24px;
+  }
+}
+
 
 .nav-links {
   list-style: none;
@@ -98,6 +135,8 @@
   text-align: center;
   padding: 60px 20px 20px;
   color: rgba(250, 144, 6, 0.45)
+  
+  
 }
 
 .section-title {
